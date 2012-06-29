@@ -3,8 +3,8 @@ Lambda-calcul
 
 Principe g&eacute;n&eacute;ral
 ------------------------------
-Le &lambda;-calcul est un syst&egrave;me permettant de formaliser le concept
-de _fonction_ et d'_application_.  
+Le &lambda;-calcul est un syst&egrave;me permettant de formaliser le
+concept de _fonction_ et d'_application_.  
 Dans ce formalisme, tout est fonction, et toute fonction non
 encore d&eacute;finie peut &ecirc;tre remplac&eacute;e par une variable.
 
@@ -31,8 +31,9 @@ Une abstraction est d&eacute;finie de la fa&ccedil;on suivante :
 ou "x" est une variable et "u" un terme.
 
 Cette abstraction d&eacute;finie une fonction prenant "x" en argument
-et retournant le terme "u".  
-__Concept important :__ Les abstractions en &lambda;-calcul n'acceptent qu'un seul argument.
+et retournant le terme "u" : f(x) = u.  
+__Concept important :__ Les abstractions en &lambda;-calcul
+n'acceptent qu'un seul argument.
 
 
 ### D&eacute;finition d'une application
@@ -42,13 +43,43 @@ Une application est d&eacute;finie de la fa&ccedil;on suivante :
 
 ou "u" et "v" sont des termes.
 
+Dans cette expression le terme "u" est appliqu&eacute; &agrave; la
+valeur "v".  
+Exemple pour u = (&lambda;x .x) et v = 2 : ((&lambda;x . x) 2) = 2
+
 
 ### Parenth&eacute;sage
 
-En &lambda;-calcul, on &eacute;vite autant que possible d'&eacute;crire les parenth&egrave;ses.
+En &lambda;-calcul, on &eacute;vite autant que possible
+d'&eacute;crire les parenth&egrave;ses.
 
-Une application a une priorit&eacute; sup&eacute;rieure &agrave; une abstraction :
-> (&lambda;x . u v) <=> (&lambda;x . (u v))
+Une application a une priorit&eacute; sup&eacute;rieure &agrave; une
+abstraction :
+> (&lambda;x . u v) &hArr; (&lambda;x . (u v))
 
-L'abstraction de droite a une priorit&eacute; sup&eacute;rieure &agrave; l'abstraction de gauche : 
-> (&lambda;x . &lambda;y . x) <=> (&lambda;x . (&lambda;y . x))
+L'abstraction de droite a une priorit&eacute; sup&eacute;rieure
+&agrave; l'abstraction de gauche : 
+> (&lambda;x . &lambda;y . x) &hArr; (&lambda;x . (&lambda;y . x))
+
+### Variables li&eacute;es
+
+La liaison d'une variable s'effectue lors de la d&eacute;claration
+d'une abstraction. La variable li&eacute;e est celle qui se trouve
+&agrave; c&ocirc;t&eacute; du signe &lambda;. Dans le terme (&lambda;x
+. u) la variable "x" est li&eacute;e et cette liaison s'&eacute;tend
+sur le terme "u".
+
+#### Renommage de variable li&eacute;e
+
+Une variable li&eacute;e peut être renommée
+
+
+### Variables libres
+
+Une variable libre est une variable non li&eacute;e. Dans le terme
+(&lambda;y . x y) la variable "x" est libre alors que la variable "y"
+est li&eacute;e. Une variable est libre dans un terme lorsque ce terme
+contient au moins une occurence libre de cette variable.
+
+#### Substitution de variable libre
+
