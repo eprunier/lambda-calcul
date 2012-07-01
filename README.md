@@ -71,7 +71,7 @@ sur le terme "u".
 
 #### Renommage de variable li&eacute;e
 
-Une variable li&eacute;e peut être renommée
+Une variable li&eacute;e peut &ecirc;tre renomm&eacute;e
 
 
 ### Variables libres
