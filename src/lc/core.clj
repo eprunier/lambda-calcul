@@ -14,7 +14,7 @@
   (vars [this]
     #{this})
   (bound-vars [this]
-    (vars this))
+    #{})
   (free-vars [this]
     (vars this)))
 
@@ -25,7 +25,9 @@
   (vars [this]
     (conj (-> this .term vars) (.arg this)))
   (bound-vars [this]
-    (apply disj (-> this .arg bound-vars) (-> this .term bound-vars))))
+    (conj (-> this .term bound-vars) (-> this .arg)))
+  (free-vars [this]
+    (apply disj (-> this .term free-vars) (-> this .arg bound-vars))))
 
 (defrecord Application [first-term second-term]
   LambdaTerm
