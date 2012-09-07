@@ -1,4 +1,5 @@
-(ns lc.core)
+(ns lc.core
+  (:require [clojure.set :as set]))
 
 (defprotocol LambdaTerm
   "Define the lambda-term protocol which must be implemented by variables, abstractions and applications"
@@ -27,12 +28,16 @@
   (bound-vars [this]
     (conj (-> this .term bound-vars) (-> this .arg)))
   (free-vars [this]
-    (apply disj (-> this .term free-vars) (-> this .arg bound-vars))))
+    (reduce disj (-> this .term free-vars) (-> this .arg bound-vars))))
 
 (defrecord Application [first-term second-term]
   LambdaTerm
   (to-string [this]
-    (str "(" (-> this .first-term to-string) " " (-> this .second-term to-string) ")")))
+    (str "(" (-> this .first-term to-string) " " (-> this .second-term to-string) ")"))
+  (vars [this]
+    (set/union (-> this .first-term vars) (-> this .second-term vars)))
+  (bound-vars [this]
+    (set/union (-> this .first-term bound-vars) (-> this .second-term bound-vars))))
 
 (defn abstraction [arg term]
   (Abstraction. arg term))
