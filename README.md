@@ -69,9 +69,12 @@ d'une abstraction. La variable li&eacute;e est celle qui se trouve
 . u) la variable "x" est li&eacute;e et cette liaison s'&eacute;tend
 sur le terme "u".
 
-#### Renommage de variable li&eacute;e
+#### Renommage d'une variable li&eacute;e
 
-Une variable li&eacute;e peut &ecirc;tre renomm&eacute;e
+Une variable li&eacute;e peut &ecirc;tre renomm&eacute;e, sans changer
+le sens de l'abstraction qui la contient, &agrave; condition
+que le nouveau nom n'apparaisse pas d&eacute;j&agrave; dans la port&eacute;e 
+de cette abstraction.
 
 
 ### Variables libres
@@ -81,5 +84,4 @@ Une variable libre est une variable non li&eacute;e. Dans le terme
 est li&eacute;e. Une variable est libre dans un terme lorsque ce terme
 contient au moins une occurence libre de cette variable.
 
-#### Substitution de variable libre
-
+#### Substitution d'une variable libre
