@@ -4,7 +4,7 @@ Lambda-calcul
 Principe g&eacute;n&eacute;ral
 ------------------------------
 Le &lambda;-calcul est un syst&egrave;me permettant de formaliser le
-concept de _fonction_ et d'_application_.  
+concept de fonction et d'application.  
 Dans ce formalisme, tout est fonction, et toute fonction non
 encore d&eacute;finie peut &ecirc;tre remplac&eacute;e par une variable.
 
